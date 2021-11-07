@@ -1,0 +1,47 @@
+.icon-check {
+	input {
+		position: absolute !important;
+		transform: translateX(-10000px);
+		&:checked {
+			&~.icon-check-1 {
+				opacity: 0 !important;
+				display: none !important;
+			}
+			&~.icon-check-2 {
+				display: block;
+			}
+		}
+	}
+	.fa-check-circle {
+		display: none;
+	}
+	i {
+		width: 20px;
+		text-align: center;
+		pointer-events: none;
+		position: absolute;
+		left: 30px;
+		top: 1px;
+		height: 24px;
+		line-height: 24px;
+	}
+	&.input-disabled {
+		i {
+			color: lighten($font-main-color, 15%) !important;
+		}
+	}
+	margin-left: -30px;
+	margin-right: 10px;
+	cursor: pointer;
+	position: relative;
+	width: auto;
+	display: block;
+	label {
+		cursor: pointer;
+		font-size: 13px;
+		padding: 2px 15px 0px 32px;
+	}
+	.icon-check-2 {
+		display: none;
+	}
+}

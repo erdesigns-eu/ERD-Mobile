@@ -1,0 +1,26 @@
+.online-message,
+.offline-message {
+	position: fixed;
+	transform: translateY(-200%);
+	padding-bottom: 0px;
+	text-align: center;
+	text-transform: uppercase;
+	font-weight: 900;
+	transition: $globalTransitions;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	z-index: 9999;
+	line-height: 55px;
+
+	&.active {
+		transform: translateY(0%);
+	}
+
+	&.message-green {
+		background-color: $switch-green;
+	}
+	&.message-red {
+		background-color: $switch-red;
+	}
+}

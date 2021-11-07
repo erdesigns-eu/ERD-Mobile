@@ -1,0 +1,36 @@
+.divider {
+	height: 1px;
+	display: block;
+	background-color: $divider-color;
+	margin-bottom: $globalMargin;
+}
+.divider-margins {
+	margin: 0px 17px $globalMargin 17px;
+}
+.divider-icon {
+	height: 1px;
+	display: block;
+	background-color: $divider-color;
+	margin-bottom: 50px;
+	i {
+		position: absolute;
+		width: 50px;
+		background-color: $divider-icon-background;
+		text-align: center;
+		margin-top: -8px;
+		left: 50%;
+		transform: translateX(-50%);
+	}
+}
+.content-boxed {
+	.divider-icon {
+		i {
+			background-color: $divider-icon-background;
+		}
+	}
+}
+.divider-small {
+	height: 2px;
+	width: 80px;
+	margin: auto;
+}

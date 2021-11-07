@@ -1,0 +1,23 @@
+// Import Bootstrap
+@import 'node_modules/bootstrap/scss/bootstrap';
+
+// Import Main style
+@import "components/main.scss";
+@import "components/utilities.scss";
+
+// Import Components
+@import "components/buttons.scss";
+@import "components/chips.scss";
+@import "components/accordion.scss";
+@import "components/alerts.scss";
+@import "components/cards.scss";
+@import "components/dividers.scss";
+@import "components/header.scss";
+@import "components/footer.scss";
+@import "components/checkradio.scss";
+@import "components/inputs.scss";
+@import "components/icons.scss";
+@import "components/lists.scss";
+@import "components/switches.scss";
+@import "components/online-offline.scss";
+@import "components/notifications.scss";

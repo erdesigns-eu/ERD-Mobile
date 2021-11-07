@@ -1,0 +1,52 @@
+// White - Black
+$white:    #fff;
+$gray-100: #f8f9fa;
+$gray-200: #e9ecef;
+$gray-300: #dee2e6;
+$gray-400: #ced4da;
+$gray-500: #adb5bd;
+$gray-600: #6c757d;
+$gray-700: #495057;
+$gray-800: #343a40;
+$gray-900: #212529;
+$black:    #000;
+
+// Theme colors
+$primary: #EB7215;
+$secondary: #C14917;
+$success: #2ba40f;
+$info: #148aeb;
+$warning: #ebc215;
+$danger: #eb4215;
+
+// Colors
+$body-background: #f0f0f0;
+$color-black: #000;
+$color-white: #fff;
+$color-dark: #1f1f1f;
+$spinner-color: #8e8e93;
+
+// Transparent
+$color-transparent: rgba(0, 0, 0, 0);
+$color-transparent-footer: rgba(255,255,255,.4);
+$color-transparent-header: rgba(255,255,255,.4);
+$transparent-filter: saturate(180%) blur(20px);
+
+// Switch Colors
+$switch-gray-ios: #e8e9ea;
+$switch-gray-android: #AAB2BD;
+$switch-green: #8CC152;
+$switch-blue: #458be3;
+$switch-red : #DA4453;
+
+// Font color
+$font-main-color: #6c6c6c;
+
+// Icon
+$logo: "../../assets/logo.png";
+
+// Import Variables
+@import '../variables.scss';
+
+// Import Main Styles
+@import '../style.scss';
