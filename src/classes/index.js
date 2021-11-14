@@ -42,3 +42,9 @@ Vue.use(Device, DeviceOptions);
  */
 import Notify from "./notify";
 Vue.use(Notify);
+
+/**
+ * Event Bus
+ */
+import EventBus from "./eventbus";
+Vue.use(EventBus);

@@ -1,7 +1,7 @@
 // General Font Settings
 $font-main-size: 13px;
-$font-main-line: 26px!important;
-$font-main-family:'Roboto', sans-serif;
+$font-main-line: 26px !important;
+$font-main-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
 $font-awesome: 'Font Awesome 5 Free';
 
 $font-h1-size: 24px; $font-h1-line: 30px;
@@ -108,3 +108,22 @@ $globalMargin: 30px;
 // Transitions for Menus, Action Sheets, Modals etc
 $disabledTransitions: all 0ms ease;
 $globalTransitions: all 350ms ease;
+
+// Tooltip
+$tooltip-font-size: $font-main-size;
+$tooltip-font-family: $font-main-family;
+$tooltip-background: $gray-100;
+$tooltip-color: $color-dark !important; 
+$tooltip-border-radius: $rounded-s;
+
+// Ripples
+$ripples-background: rgba(255, 255, 255, 0.5);
+$ripples-duration: 600ms;
+
+// Heartbeat
+$heartbeat-duration: 3s;
+
+// Context Menu
+$context-background: $body-background;
+$context-border: $gray-500;
+$context-active: lighten($primary, 10%);

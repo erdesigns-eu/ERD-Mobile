@@ -638,13 +638,4 @@ export class Notify {
       }, backdropTimeout / 2);
     });
   }
-
-  /**
-   * Snackbar notification
-   *
-   * @param {Object} options
-   */
-  snackbar(options) {
-    console.log(options);
-  }
 }

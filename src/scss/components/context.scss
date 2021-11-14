@@ -1,0 +1,59 @@
+.context-menu {
+    display: inline-block;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    min-width: 270px;
+    font-family: $font-main-family;
+    color: $color-dark;
+    background: $context-background;
+    font-size: 9pt;
+    border: 1px solid $context-border;
+    -webkit-box-shadow: 5px 5px 14px 2px rgba(0,0,0,0.25); 
+    box-shadow: 5px 5px 14px 2px rgba(0,0,0,0.25);
+    padding: 3px 0px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    .context-item {
+        padding: 4px 19px;
+        cursor: default;
+        color: inherit;
+
+        &:hover {
+            background: $context-active !important;
+
+            .hotkey {
+                color: $color-dark;
+            }
+        }
+
+        &.disabled {
+            color: lighten($color-dark, 50%) !important;
+
+            &:hover {
+                background: inherit !important;
+
+                .hotkey {
+                    color: lighten($color-dark, 50%) !important;
+                }
+            }
+        }
+    }
+
+    .context-separator {
+        margin: 4px 0px;
+        height: 0;
+        padding: 0;
+        border-top: 1px solid $gray-400;
+    }
+
+    .hotkey {
+        color: $gray-600;
+        float: right;
+    }
+}

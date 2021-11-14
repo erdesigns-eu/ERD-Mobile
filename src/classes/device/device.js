@@ -13,6 +13,7 @@ export class Device {
   #onlineText;
   #offlineText;
   #wakeLock;
+  #language;
 
   /**
    * Static Properties
@@ -44,6 +45,7 @@ export class Device {
       options && options.offlineText
         ? options.offlineText
         : "No internet connection detected";
+    this.#language = options && options.locale ? options.locale : "en-US";
     // Create Online/Offline messages
     this.#createMessages();
     // Add event listeners
@@ -53,6 +55,17 @@ export class Device {
     this.#initializeWakelock();
     // Initialize Notch
     this.#initializeNotch();
+  }
+
+  /**
+   * Get system language
+   */
+  get language() {
+    return (
+      navigator.language ||
+      (Array.isArray(navigator.languages) && navigator.languages[0]) ||
+      this.#language
+    );
   }
 
   /**

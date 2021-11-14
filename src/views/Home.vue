@@ -1,6 +1,20 @@
 <template>
   <div class="home">
     <div class="content">
+      <div v-safe-html="someHTML"></div>
+      <div>
+        <p>Auto Expand Directive</p>
+        <textarea v-auto-expand></textarea>
+      </div>
+
+      <div class="tooltips">
+        <h1
+          style="display: inline-block"
+          v-tooltip:right="'Some Tooltip here :)'"
+        >
+          SOME TOOLTIP
+        </h1>
+      </div>
       <div class="reading-time">
         <!-- FILTERS -->
         {{ "reading time of text:" | capitalize(true) }}
@@ -52,7 +66,8 @@
           } | get("personal.phone")
         }}
       </div>
-      <img alt="Vue logo" src="../assets/logo.png" />
+      <p>Case Directive</p>
+      <div v-case:camel="text"></div>
       <erd-button-group>
         <erd-button color="warning" class="btn-full" @click="notifySmall"
           >Notify Small<erd-badge color="secondary" pill
@@ -62,8 +77,18 @@
         <erd-button color="danger" class="btn-full" @click="doloader"
           >Loader</erd-button
         >
-        <erd-button color="primary" class="btn-full" @click="notifyLarge"
+        <erd-button
+          color="primary"
+          class="btn-full"
+          @click="notifyLarge"
+          v-tooltip:bottom="'Large Notification'"
           >Notify Large</erd-button
+        >
+        <erd-button
+          v-ripples
+          v-longclick="doLongClick"
+          @click="$bus.emit('ripples')"
+          >Ripples {{ longClick }}</erd-button
         >
       </erd-button-group>
       <erd-button-group class="mt-2">
@@ -76,7 +101,20 @@
         <erd-button color="info" class="btn-full" @click="notifyActions"
           >Actions</erd-button
         >
+        <erd-button color="primary" class="btn-full" v-clipboard="text"
+          >Copy to clipboard</erd-button
+        >
       </erd-button-group>
+      <br />
+      <br />
+      <erd-button
+        color="primary"
+        v-heartbeat:round="{ size: 100 }"
+        v-ripples
+        v-observe="onObserve"
+        v-outside="onOutside"
+        ><i class="fas fa-heart text-white display-1 font-600"></i
+      ></erd-button>
       <br />
       <br />
       <erd-chip bg="secondary" icon="fa fa-star">ABC</erd-chip>
@@ -88,17 +126,28 @@
           >Some content here too</erd-accordion-item
         >
       </erd-accordion>
+      <div
+        style="
+          width: 150px;
+          height: 150px;
+          background: var(--bs-primary);
+          margin-bottom: 1rem;
+        "
+        v-ripples:square:dark
+      ></div>
       <erd-alert
+        v-tooltip:top:show="'Alert Tooltip 2'"
         color="secondary"
         text="Some text"
         title="Some title"
         can-close
       ></erd-alert>
       <erd-alert
+        v-ripples
+        v-tooltip:top="'Alert Tooltip'"
         color="primary"
         text="Some text"
         title="Some title"
-        can-close
         solid
       ></erd-alert>
       <erd-breadcrumb :items="breadcrumbItems"></erd-breadcrumb>
@@ -312,6 +361,13 @@
         <p class="color-white mt-n2 mb-0">With slots</p>
       </template>
     </erd-image-card>
+    <p>Lazy load image</p>
+    <img
+      alt="Vue logo"
+      width="150"
+      height="150"
+      v-lazy-load="'https://via.placeholder.com/150'"
+    />
   </div>
 </template>
 
@@ -391,6 +447,9 @@ export default {
       stepper: 1,
       text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus dui nibh, vehicula sed faucibus a, vestibulum non ipsum. Pellentesque gravida fringilla felis, ullamcorper semper arcu congue vehicula. Vivamus vitae convallis ante. Pellentesque nec sapien et erat porta hendrerit vel ut dui. Nulla ut elit efficitur, maximus mi vitae, laoreet metus. Aliquam sollicitudin risus at metus hendrerit fringilla. Integer tortor nunc, aliquet sit amet odio eu, malesuada elementum elit. Duis sodales pharetra enim. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eros orci, luctus a dapibus tincidunt, egestas ac sem.",
       filterItems: ["Item 1", "Item 2", "Item 3", "Item 4", "Item 5"],
+      longClick: 0,
+      someHTML:
+        "<p>Some test element</p><div class='my-class'>MY CLASS</div><p>Some other P</p>",
     };
   },
   computed: {
@@ -399,6 +458,12 @@ export default {
     },
   },
   methods: {
+    onObserve(e) {
+      console.log("observe", e);
+    },
+    onOutside(e) {
+      console.log("clicked outside heartbeat button", e);
+    },
     onGroupItemClick(index, e) {
       console.log("group item clicked", index, e);
     },
@@ -470,6 +535,16 @@ export default {
         vm.$notify.loader(false);
       }, 3000);
     },
+    doLongClick() {
+      this.longClick = this.longClick + 1;
+    },
+  },
+  created() {
+    this.$bus.on("ripples", console.log);
+    console.log(this.$device);
+  },
+  beforeDestroy() {
+    this.$bus.off("ripples");
   },
 };
 </script>

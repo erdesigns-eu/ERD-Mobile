@@ -19,6 +19,7 @@ module.exports = {
       ignored: "/node_modules/",
     },
   },
+  lintOnSave: process.env.NODE_ENV !== "production",
   pwa: {
     name: "ERD Mobile",
     themeColor: "#fff",
